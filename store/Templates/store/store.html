@@ -1,0 +1,107 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <!-- slider -->
+      <!--image slider start-->
+<div class="turnlol">
+    <div class="slider">
+      <div class="slides">
+        <!--radio buttons start-->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <!--radio buttons end-->
+        <!--slide images start-->
+        <div class="slide first">
+          <img src="https://howproblems.com/wp-content/uploads/2021/02/best-Gaming-Laptop.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://www.cnet.com/a/img/resize/2cc01495230fb51db3b81d611059378f18055e6d/hub/2019/04/09/14f91779-c049-4cbe-a4ac-0b42583dc2ca/hp-pavilion-gaming-laptop.jpg?auto=webp&width=768" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://cdn.cnn.com/cnnnext/dam/assets/211025072623-macbook-pro-14-display-5.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://www.zdnet.com/a/img/resize/a7406e3e1b1dbb0f60180c8dfd284d06195e745c/2021/08/11/a3766c47-1ac8-424b-88af-5a7494478101/galaxy-z-flip-3.jpg?width=1200&fit=bounds&auto=webp" alt="">
+        </div>
+        <!--slide images end-->
+        <!--automatic navigation start-->
+        <div class="navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+          <div class="auto-btn4"></div>
+        </div>
+        <!--automatic navigation end-->
+      </div>
+      <!--manual navigation start-->
+      <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+      </div>
+      <!--manual navigation end-->
+    </div>
+    <!--image slider end-->
+
+</div>
+<!-- services -->
+<div class="title">
+      <h1><span>Ser</span>vices</h1>
+    </div>
+ <section class="section services">
+    <div class="service-center container">
+      <div class="service">
+        <span class="icon"><i class="bx bx-purchase-tag"></i></span>
+        <h4>Free Shipping</h4>
+        <span class="text">Capped at $39 per order</span>
+      </div>
+
+      <div class="service">
+        <span class="icon"><i class="bx bx-gift"></i></span>
+        <h4>Securety Payments</h4>
+        <span class="text">Up to 12 months installment</span>
+      </div>
+
+      <div class="service">
+        <span class="icon"><i class="bx bx-book-reader"></i></span>
+        <h4>14-Day Returns</h4>
+        <span class="text">Shop with confidence</span>
+      </div>
+
+      <div class="service">
+        <span class="icon"><i class="bx bx-headphone"></i></span>
+        <h4>24/7 Support</h4>
+        <span class="text">Delivered to your door</span>
+      </div>
+    </div>
+  </section>
+
+<!-- new arrivals -->
+ <div class="title">
+      <h1><span>New</span> Arrivals</h1>
+    </div>
+	<div class="row">
+		{% for product in products %}
+		<div class="col-sm-4">
+			<img class="thumbnail" src="{{product.image.url}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6> <div class="rating">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bx-star"></i>
+        </div>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart <i class="fa fa-shopping-cart"></i></button>
+       <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock content %}
